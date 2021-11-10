@@ -1,0 +1,13 @@
+// Colors Palet
+@import "./colors.scss";
+
+// Layout
+@import "../layouts/BasicLayout/BasicLayout.scss";
+
+// Components / Header
+@import "../components/Header/Header.scss";
+@import "../components/Header/Topbar/Topbar.scss";
+@import "../components/Header/Menu/Menu.scss";
+
+// Components / Modal
+@import "../components/Modal/BasicModal/BasicModal.scss";

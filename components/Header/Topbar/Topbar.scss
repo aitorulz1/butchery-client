@@ -1,0 +1,22 @@
+.top-bar {
+  width: 100%;
+  margin: 0 auto;
+
+  .searcher-container {
+    float: right;
+
+    input {
+      width: 220px;
+      background-color: transparent !important;
+      border: 0 !important;
+      border-bottom: 2px solid #000 !important;
+      border-radius: 0 !important;
+      padding: 5px 0;
+      transition: width 3s !important;
+
+      &:focus {
+        width: 270px;
+      }
+    }
+  }
+}
