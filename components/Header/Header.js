@@ -5,7 +5,6 @@ export default function Header() {
   return (
     <div>
       <Topbar />
-      <div>Menu</div>
     </div>
   );
 }

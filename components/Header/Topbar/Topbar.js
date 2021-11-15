@@ -1,5 +1,6 @@
 import { Input } from "semantic-ui-react";
 import Link from "next/link";
+import Menuweb from "../Menu";
 
 export default function Topbar() {
   return (
@@ -9,7 +10,7 @@ export default function Topbar() {
         <Search />
       </div>
 
-      <h1>Topbar...</h1>
+      <Menuweb />
     </div>
   );
 }
