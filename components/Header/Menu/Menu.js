@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import BasicModal from "../../Modal/BasicModal";
 
 export default function Menuweb() {
+  const [showmodal, setShowModal] = useState(false);
+  const openModal = () => setShowModal(true);
+
   return (
     <div>
       <div>
@@ -9,10 +12,16 @@ export default function Menuweb() {
       </div>
 
       <div>
-        <Account />
+        <Account openModal={openModal} />
       </div>
       <div>
-        <BasicModal show={true}></BasicModal>
+        <BasicModal
+          showmodal={showmodal}
+          setShowModal={setShowModal}
+          title="Inicia Sesión"
+        >
+          Componenete Básico
+        </BasicModal>
       </div>
     </div>
   );
@@ -40,9 +49,11 @@ function Menu() {
   );
 }
 
-function Account() {
+function Account(props) {
+  const { openModal } = props;
+
   return (
-    <a>
+    <a onClick={openModal}>
       <li>Account</li>
     </a>
   );
