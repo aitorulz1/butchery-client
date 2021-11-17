@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BasicModal from "../../Modal/BasicModal";
+import Auth from "../../Auth";
 
 export default function Menuweb() {
   const [showmodal, setShowModal] = useState(false);
@@ -20,7 +21,7 @@ export default function Menuweb() {
           setShowModal={setShowModal}
           title="Inicia Sesión"
         >
-          Componenete Básico
+          <Auth />
         </BasicModal>
       </div>
     </div>
