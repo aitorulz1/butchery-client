@@ -4,7 +4,7 @@ import { Modal, Icon } from "semantic-ui-react";
 export default function BasicModal(props) {
   const { showmodal, setShowModal, title, children, ...rest } = props;
 
-  const onClose = () => setShow(false);
+  const onClose = () => setShowModal(false);
 
   return (
     <Modal className="basic-modal" open={showmodal} onClose={onClose} {...rest}>

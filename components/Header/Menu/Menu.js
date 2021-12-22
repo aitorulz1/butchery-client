@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import BasicModal from "../../Modal/BasicModal";
+import Auth from "../../Auth/Auth";
 
 export default function Menuweb() {
   const [showmodal, setShowModal] = useState(false);
+
   const openModal = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
 
   return (
     <div>
@@ -20,7 +23,7 @@ export default function Menuweb() {
           setShowModal={setShowModal}
           title="Inicia Sesión"
         >
-          Componenete Básico
+          <Auth closeModal={closeModal} />
         </BasicModal>
       </div>
     </div>
@@ -31,19 +34,19 @@ function Menu() {
   return (
     <nav>
       <a>
-        <li>Carne</li>
+        <li>Ropa</li>
       </a>
       <a>
-        <li>Cestas</li>
+        <li>Zapatos</li>
       </a>
       <a>
-        <li>Regalos</li>
+        <li>Viaje</li>
       </a>
       <a>
-        <li>Contacto</li>
+        <li>Marcas</li>
       </a>
       <a>
-        <li>Blog</li>
+        <li>Complementos</li>
       </a>
     </nav>
   );
