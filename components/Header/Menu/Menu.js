@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import BasicModal from "../../Modal/BasicModal";
-<<<<<<< HEAD
 import Auth from "../../Auth/Auth";
-=======
-import Auth from "../../Auth";
->>>>>>> 24f861a63e5f07ffc76bb849ca165ea478940533
 
 export default function Menuweb() {
   const [showmodal, setShowModal] = useState(false);
@@ -27,11 +23,9 @@ export default function Menuweb() {
           setShowModal={setShowModal}
           title="Inicia Sesión"
         >
-<<<<<<< HEAD
           <Auth closeModal={closeModal} />
-=======
+
           <Auth />
->>>>>>> 24f861a63e5f07ffc76bb849ca165ea478940533
         </BasicModal>
       </div>
     </div>
