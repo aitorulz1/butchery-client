@@ -5,6 +5,8 @@ import Auth from "../../Auth/Auth";
 export default function Menuweb() {
   const [showmodal, setShowModal] = useState(false);
 
+  const [modalTitle, setModalTitle] = useState("Iniciar Sesión");
+
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
 
@@ -21,11 +23,9 @@ export default function Menuweb() {
         <BasicModal
           showmodal={showmodal}
           setShowModal={setShowModal}
-          title="Inicia Sesión"
+          title={modalTitle}
         >
-          <Auth closeModal={closeModal} />
-
-          <Auth />
+          <Auth closeModal={closeModal} setModalTitle={setModalTitle} />
         </BasicModal>
       </div>
     </div>
