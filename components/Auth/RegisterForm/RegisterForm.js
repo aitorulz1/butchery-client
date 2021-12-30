@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { Form, Button } from "semantic-ui-react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { registerApi } from "../../../api/user";
 
 export default function RegisterForm(props) {
   const { showLoginForm } = props;
+  const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
-    onSubmit: (formData) => {
-      registerApi(formData);
+    onSubmit: async (formData) => {
+      setLoading(true);
+      const response = await registerApi(formData);
+      if (response?.jwt) {
+        showLoginForm();
+      } else {
+        console.log("Error al Registrar el usuario");
+      }
+      setLoading(false);
     },
   });
 
@@ -52,8 +61,12 @@ export default function RegisterForm(props) {
         error={formik.errors.password}
       />
 
-      <button type="button">Iniciar Sesión</button>
-      <button type="submit">Registrarse</button>
+      <button type="button" onClick={showLoginForm}>
+        Iniciar Sesión
+      </button>
+      <Button type="submit" loading={loading}>
+        Registrarse
+      </Button>
     </form>
   );
 }
