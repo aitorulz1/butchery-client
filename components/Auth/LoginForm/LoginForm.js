@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button } from "semantic-ui-react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { loginApi } from "../../../api/user";
+import { loginApi, resetPasswordApi } from "../../../api/user";
 import useAuth from "../../../hooks/useAuth";
 
 export default function LoginForm(props) {
@@ -26,6 +26,17 @@ export default function LoginForm(props) {
     },
   });
 
+  const resetPassword = () => {
+    formik.setErrors({});
+    const validateEmail = Yup.string().email().required();
+
+    if(!validateEmail.isValidSync(formik.values.identifier)) {
+      formik.setErrors({identifier: true});
+    } else {
+      resetPasswordApi(formik.values.identifier)
+    }
+  }
+
   return (
     <form onSubmit={formik.handleSubmit}>
       <input
@@ -47,7 +58,7 @@ export default function LoginForm(props) {
         Ir a Registro
       </button>
       <Button type="submit">Entrar</Button>
-      <button type="button">¿Has olvidado la contraseña?</button>
+      <button type="button" onClick={resetPassword}>¿Has olvidado la contraseña?</button>
     </form>
   );
 }
